@@ -1,0 +1,362 @@
+﻿<siee:SIEEUserControl
+    x:Class="CaptureCenter.SqlEE.SqlEEControlWPF"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:CaptureCenter.SqlEE"
+    xmlns:siee="clr-namespace:ExportExtensionCommon;assembly=ExportExtensionCommon.Base"
+    mc:Ignorable="d"
+    d:DataContext="{d:DesignInstance local:SqlEEViewModel}"
+    d:DesignHeight="300" d:DesignWidth="300"
+    Background="Transparent"
+>
+    <UserControl.Resources>
+        <siee:BoolToRunningCursorConverter x:Key="BoolToRunningCursorConverter"/>
+        <siee:BoolToResultColorConverter x:Key="BoolToResultColorConverter"/>
+        <siee:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <siee:BoolToHiddenOrVisibleConverter x:Key="BoolToHiddenOrVisibleConverter"/>
+        <siee:BoolToReadOnlyForegroundColorConverter x:Key="BoolToReadOnlyForegroundColorConverter"/>
+        <siee:BoolToReadOnlyBackgroundColorConverter x:Key="BoolToReadOnlyBackgroundColorConverter"/>
+    </UserControl.Resources>
+
+    <TabControl
+        TabStripPlacement="Left"
+        SelectedIndex="{Binding SelectedTab}"
+        SelectionChanged="TabControl_SelectionChanged"
+        Cursor="{Binding IsRunning, Converter={StaticResource BoolToRunningCursorConverter}}"
+        x:Name="mainTabControl"
+    >
+        <TabControl.Resources>
+            <Style TargetType="{x:Type TabItem}">
+                <Setter Property="Padding" Value="10,5,5,5"/>
+            </Style>
+        </TabControl.Resources>
+        
+        <TabItem Header="SQL connection"
+            x:Name="connectionTabItem"
+        >
+            <Grid ShowGridLines="False"
+                MinWidth="400" Margin="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0" Grid.Column="0" Margin="5"
+                    Content="Instance"
+                />
+                <TextBox
+                    Grid.Row="0" Grid.Column="1" Margin="5"
+                    VerticalContentAlignment="Center"
+                    Text="{Binding CT.Instance, UpdateSourceTrigger=PropertyChanged}"
+                />
+                <Label
+                    Grid.Row="1" Grid.Column="0" Margin="5"
+                    Content="Catalog"
+                />
+                <TextBox
+                    Grid.Row="1" Grid.Column="1" Margin="5"
+                    VerticalContentAlignment="Center"
+                    Text="{Binding CT.Catalog, UpdateSourceTrigger=PropertyChanged}"
+                />
+                <Label
+                    Grid.Row="2" Grid.Column="0" Margin="5"
+                    Content="Authentication"
+                />
+                <ComboBox
+                    Grid.Row="2" Grid.Column="1" Margin="5"
+                    MinWidth="50" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+                    ItemsSource="{Binding CT.LogonMethods}"
+                    SelectedItem="{Binding CT.SelectedLogonMethod}"
+                    DisplayMemberPath="Name"
+                />
+                <Grid 
+                    Grid.Row="3" Grid.Column="1" Margin="5,5,0,5"
+                    IsEnabled="{Binding CT.ShowUserNamePassword}"
+                >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label
+                        Grid.Row="0" Grid.Column="0" Margin="5"
+                        Content="User"
+                    />
+                    <TextBox
+                        Grid.Row="0" Grid.Column="1" Margin="5"
+                        VerticalContentAlignment="Center"
+                        Text="{Binding CT.Username, UpdateSourceTrigger=PropertyChanged}"
+                    />
+                    <Label
+                        Grid.Row="1" Grid.Column="0" Margin="5"
+                        Content="Password"
+                    />
+                    <PasswordBox
+                        Grid.Row="1" Grid.Column="1" Margin="5"
+                        VerticalContentAlignment="Center"
+                        PasswordChanged="passwordBox_PasswordChanged"
+                        x:Name="passwordBox"
+                    />
+                </Grid>
+
+                <Label
+                    Grid.Row="4" Grid.Column="0" Margin="5"
+                    Content="Culture"
+                />
+                <ComboBox
+                    Grid.Row="4" Grid.Column="1" Margin="5"
+                    VerticalContentAlignment="Center"
+                    ItemsSource="{Binding CT.Cultures}"
+                    DisplayMemberPath="DisplayName"
+                    SelectedItem="{Binding CT.SelectedCulture}"
+                />
+
+                <!-- Buttons -->
+                <Button
+                    Style="{x:Null}"
+                    Grid.Row="5" Grid.Column="0" Margin="5" 
+                    HorizontalAlignment="Left" VerticalAlignment="Center"
+                    Padding="10,2,10,2" 
+                    Click="Button_Test_Click">Check connection
+                </Button>
+
+                <Button
+                    Style="{x:Null}"
+                    Grid.Row="5" Grid.Column="2" Margin="5" 
+                    HorizontalAlignment="Right" VerticalAlignment="Center"
+                    Padding="10,2,10,2" 
+                    Click="Button_Login_Click">Login
+                </Button>
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Table"
+            x:Name="tableTabItem"
+            IsEnabled="{Binding DataLoaded}"
+        >
+            <Grid
+                MinWidth="400" Margin="0,10,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Label
+                    Grid.Row="0" Grid.Column="0" Margin="5"
+                    Content="Tables"
+                />
+                <ComboBox
+                    Grid.Row="0" Grid.Column="1" Margin="5"
+                    MinWidth="50" HorizontalAlignment="Stretch" VerticalContentAlignment="Center"
+                    ItemsSource="{Binding TT.Tables}"
+                    SelectedItem="{Binding TT.SelectedTable}"
+                />
+                
+                <DataGrid
+                    Grid.Row="1" Grid.ColumnSpan="2" Margin="5"
+                    CanUserAddRows="False"
+                    MinHeight="100"
+                    ItemsSource="{Binding TT.Columns}" AutoGenerateColumns="False">
+
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn 
+                                Header="Name" MinWidth="150" Width="3*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        VerticalAlignment="Stretch" VerticalContentAlignment="Center"
+                                        HorizontalAlignment="Stretch"
+                                        Text="{Binding ColumnDescription.Name, Mode=OneWay}"
+                                    />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn 
+                                Header="Type" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBox
+                                        VerticalAlignment="Stretch" VerticalContentAlignment="Center"
+                                        HorizontalAlignment="Stretch" IsReadOnly="True"
+                                        Text="{Binding ColumnDescription.SqlTypeName, Mode=OneWay}"
+                                    />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Use">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox x:Name="childCheckBox"
+                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        IsEnabled="{Binding IsUsable}"
+                                        IsChecked="{Binding Path=Use, UpdateSourceTrigger=PropertyChanged}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Header="Document" x:Name="tableFlagColum">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox 
+                                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                                        IsEnabled="{Binding DocumentAllowed}"
+                                        IsChecked="{Binding Path=IsDocument, UpdateSourceTrigger=PropertyChanged}">
+                                    </CheckBox>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                
+                <StackPanel
+                    Grid.Row="2" Grid.ColumnSpan="2" Margin="5"
+                    Orientation="Horizontal"
+                >
+                    <Button
+                        Style="{x:Null}"
+                        Grid.Row="4" Grid.Column="0" Margin="5" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Padding="10,2,10,2" 
+                        Content="Select all"
+                        Click="Button_SelectAll_Click"
+                    />
+                    <Button
+                        Style="{x:Null}"
+                        Grid.Row="4" Grid.Column="0" Margin="5" 
+                        HorizontalAlignment="Left" VerticalAlignment="Center"
+                        Padding="10,2,10,2" 
+                        Content="Deselect all"
+                        Click="Button_DeselectAll_Click"
+                    />
+                </StackPanel>
+                
+            </Grid>
+        </TabItem>
+
+        <TabItem Header="Document"
+            x:Name="documentTabItem"
+            Visibility="Hidden"
+            IsEnabled="{Binding DataLoaded}"
+        >
+            <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Margin="10">
+                <RadioButton 
+                    GroupName="documentname" Content="Create document name from input document name" 
+                    IsChecked="{Binding DT.UseInputFileName}"/>
+                <RadioButton
+                    GroupName="documentname" Content="Create document name from format" Margin="0,10,0,0"
+                    IsChecked="{Binding DT.UseSpecification}"/>
+                <GroupBox 
+                    Margin="0,0,0,0"  BorderThickness="0"
+                    IsEnabled="{Binding DT.UseSpecification}">
+                    <Grid MinWidth="400" ShowGridLines="False">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox 
+                            Grid.Row="0" Grid.Column="0" Margin="10,10,10,5"
+                            VerticalAlignment="Center" Padding="2" Grid.ColumnSpan="2"
+                            Text="{Binding DT.Specification, UpdateSourceTrigger=PropertyChanged}"/>
+                        <Label 
+                            Grid.Row="2" Grid.Column="0" Margin="10,0,0,0" 
+                            Content="Example:"/>
+                        <TextBlock 
+                            Grid.Row="2" Grid.Column="0" Margin="15,20,0,0" Padding="2" Grid.ColumnSpan="2"
+                            VerticalAlignment="Center"
+                            Text="{Binding DT.Result}"/>
+                        <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,10,0,10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <!-- <ColumnDefinition Width="*"/> -->
+                            </Grid.ColumnDefinitions>
+
+                            <Button Grid.Row="0" Grid.Column="0" Margin="10, 5, 10, 5" Padding="5,1,5,1" Style="{x:Null}"
+                                Content="&lt;BATCHID>" ToolTip="Id number of the OCC batch the document is in"
+                                Click="Button_AddTokenToFile" Name="BATCHID" Tag="{Binding RelativeSource={RelativeSource Self}, Path=Name}"
+                                    />
+                            <Button Grid.Row="0" Grid.Column="1" Margin="10, 5, 10, 5" Padding="5,1,5,1" Style="{x:Null}"
+                                Content="&lt;DOCUMENTNUMBER>" ToolTip="Sequence number of the current batch"
+                                Click="Button_AddTokenToFile" Name="DOCUMENTNUMBER" Tag="{Binding RelativeSource={RelativeSource Self}, Path=Name}"
+                                    />
+                            <Button Grid.Row="0" Grid.Column="2" Margin="10, 5, 10, 5" Padding="5,1,5,1" Style="{x:Null}"
+                                Content="&lt;HOST>" ToolTip="Name of the machine initiating the entity creation"
+                                Click="Button_AddTokenToFile" Name="HOST" Tag="{Binding RelativeSource={RelativeSource Self}, Path=Name}"
+                                    />
+                            <Button Grid.Row="1" Grid.Column="0" Margin="10, 5, 10, 5" Padding="5,1,5,1" Style="{x:Null}"
+                                Content="&lt;DATE>" ToolTip="Date of entity creation"
+                                Click="Button_AddTokenToFile" Name="DATE" Tag="{Binding RelativeSource={RelativeSource Self}, Path=Name}"
+                                    />
+                            <Button Grid.Row="1" Grid.Column="1" Margin="10, 5, 10, 5" Padding="5,1,5,1" Style="{x:Null}"
+                                Content="&lt;TIME>" ToolTip="Time of entity creation"
+                                Click="Button_AddTokenToFile" Name="TIME" Tag="{Binding RelativeSource={RelativeSource Self}, Path=Name}"
+                                    />
+
+                            <Button Grid.Row="1" Grid.Column="2" Margin="10, 5, 10, 5" Padding="5,1,5,1" Style="{x:Null}"
+                                Content="&lt;UNIQUEID>" ToolTip="Unique value (on the current host)"
+                                Click="Button_AddTokenToFile" Name="UNIQUEID" Tag="{Binding RelativeSource={RelativeSource Self}, Path=Name}"
+                                    />
+
+                            <GroupBox Grid.Row="2" Grid.ColumnSpan="4" Margin="10, 5, 10, 5"
+                                Header="Add value of an entity property"
+                                >
+                                <StackPanel Orientation="Horizontal">
+                                    <ComboBox Grid.Row="2" Grid.Column="2" Margin="10,10,5,10"
+                                             MinWidth="200"
+                                             ItemsSource="{Binding DT.FieldNames}"
+                                             SelectedItem="{Binding DT.SelectedFieldName}"
+                                    />
+                                    <Button Grid.Row="2" Grid.Column="0" Margin="5,10,10,10"  Padding="5,1,5,1" Style="{x:Null}"
+                                        Content="Add" ToolTip="Add value of an entity property"
+                                        Click="Button_AddTokenToFile" Name="AddFieldToken" Tag="Add"
+                                    />
+                                </StackPanel>
+                            </GroupBox>
+                        </Grid>
+
+                    </Grid>
+                </GroupBox>
+            </StackPanel>
+        </TabItem>
+
+    </TabControl>
+    
+</siee:SIEEUserControl>

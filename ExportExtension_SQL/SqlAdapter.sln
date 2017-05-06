@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptureCenter.Sql.Adapter", "DOKuStar.Sql.Adapter\CaptureCenter.Sql.Adapter.csproj", "{DAD9FF7E-A2ED-4B94-94C6-7C45DB3ABD4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOKuStar.Modules.Sql.Writer", "DOKuStar.Modules.Sql.Writer\DOKuStar.Modules.Sql.Writer.csproj", "{B83C4523-AD7D-4129-B5A5-CCC7105A74FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestSqlClient", "TestSqlClient\TestSqlClient.csproj", "{92BDFA5C-7E2D-4115-9274-CFF306BF78FB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F0A50D46-2CF3-46DD-9091-CF160A63A577}"
+	ProjectSection(SolutionItems) = preProject
+		Documentation\SqlConnector.docx = Documentation\SqlConnector.docx
+		Documentation\ToDo.txt = Documentation\ToDo.txt
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptureCenter.SqlClient", "CaptureCenter.SqlClient\CaptureCenter.SqlClient.csproj", "{2315D082-72C1-4EB3-89F3-17C8ACD3A7A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppSIEE", "..\ExportExtensionCommon\TestAppSIEE\TestAppSIEE.csproj", "{D4718809-84C7-4B0B-99D7-D433C04724AF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAD9FF7E-A2ED-4B94-94C6-7C45DB3ABD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD9FF7E-A2ED-4B94-94C6-7C45DB3ABD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD9FF7E-A2ED-4B94-94C6-7C45DB3ABD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD9FF7E-A2ED-4B94-94C6-7C45DB3ABD4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B83C4523-AD7D-4129-B5A5-CCC7105A74FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B83C4523-AD7D-4129-B5A5-CCC7105A74FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B83C4523-AD7D-4129-B5A5-CCC7105A74FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B83C4523-AD7D-4129-B5A5-CCC7105A74FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92BDFA5C-7E2D-4115-9274-CFF306BF78FB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92BDFA5C-7E2D-4115-9274-CFF306BF78FB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92BDFA5C-7E2D-4115-9274-CFF306BF78FB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92BDFA5C-7E2D-4115-9274-CFF306BF78FB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2315D082-72C1-4EB3-89F3-17C8ACD3A7A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2315D082-72C1-4EB3-89F3-17C8ACD3A7A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2315D082-72C1-4EB3-89F3-17C8ACD3A7A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2315D082-72C1-4EB3-89F3-17C8ACD3A7A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4718809-84C7-4B0B-99D7-D433C04724AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4718809-84C7-4B0B-99D7-D433C04724AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4718809-84C7-4B0B-99D7-D433C04724AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4718809-84C7-4B0B-99D7-D433C04724AF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
