@@ -148,12 +148,6 @@
   <ItemGroup>
     <Folder Include="Resources\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CaptureCenter.SIEE.Base\CaptureCenter.SIEE.Base.csproj">
-      <Project>{67ba25a7-1bf6-4e47-b402-201ea2e23985}</Project>
-      <Name>CaptureCenter.SIEE.Base</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
