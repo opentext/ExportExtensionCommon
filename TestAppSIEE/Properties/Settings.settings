@@ -1,0 +1,72 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="OCC_SIEE.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CurrentExtension" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MainLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">300, 300</Value>
+    </Setting>
+    <Setting Name="ConfigureLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">300, 300</Value>
+    </Setting>
+    <Setting Name="CaptureLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">300, 300</Value>
+    </Setting>
+    <Setting Name="ClearSetting" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="DefaultSettings" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DefaultValues" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PreferencesLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">300, 300</Value>
+    </Setting>
+    <Setting Name="MainSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="CaptuerSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="ConfigSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="MaintRichTextFont" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MainRichTextColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">ControlText</Value>
+    </Setting>
+    <Setting Name="TestLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="TestSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="DefaultDocument" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="GetPasswordLocation" Type="System.Drawing.Point" Scope="User">
+      <Value Profile="(Default)">0, 0</Value>
+    </Setting>
+    <Setting Name="OCCHost" Type="System.String" Scope="User">
+      <Value Profile="(Default)">localhost</Value>
+    </Setting>
+    <Setting Name="OCCHostAccess" Type="System.String" Scope="User">
+      <Value Profile="(Default)">19284/cc01/scpt/</Value>
+    </Setting>
+    <Setting Name="ReloadConfiguration" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="SavedConfigurationType" Type="System.String" Scope="User">
+      <Value Profile="(Default)">none</Value>
+    </Setting>
+    <Setting Name="SavedConfiguration" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

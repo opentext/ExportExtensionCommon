@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<Settings>
+
+ <!-- CMIS: Alfresco -->
+<Setting Extension="CMISSettings" Property="CT.ServerURL" Value="https://cmis.alfresco.com/alfresco/api/-default-/public/cmis/versions/1.1/atom"/>
+<Setting Extension="CMISSettings" Property="CT.Username" Value="admin"/>
+<Setting Extension="CMISSettings" Property="CT.Password" Value="admin"/>
+
+<!-- SharePoint online -->
+<Setting Extension="SPOSettings" Property="CT.SiteUrl" Value="https://opentext.sharepoint.com/sites/occ/"/>
+<Setting Extension="SPOSettings" Property="CT.Username" Value="user@company.onmicrosoft.com"/>
+<Setting Extension="SPOSettings" Property="CT.Password" Value=""/>
+<Setting Extension="SPOSettings" Property="CT.Office365" Value="true"/>
+
+</Settings>

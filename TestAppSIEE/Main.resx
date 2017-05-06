@@ -1,0 +1,714 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_configure.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="btn_configure.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_configure.Location" type="System.Drawing.Point, System.Drawing">
+    <value>277, 446</value>
+  </data>
+  <data name="btn_configure.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btn_configure.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 34</value>
+  </data>
+  <data name="btn_configure.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="btn_configure.Text" xml:space="preserve">
+    <value>Configure</value>
+  </data>
+  <metadata name="toolTip_Configure.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="btn_configure.ToolTip" xml:space="preserve">
+    <value>Emultate OCC''s configuration process.
+Show the extension's properties.</value>
+  </data>
+  <data name="&gt;&gt;btn_configure.Name" xml:space="preserve">
+    <value>btn_configure</value>
+  </data>
+  <data name="&gt;&gt;btn_configure.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_configure.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_configure.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="btn_capture.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btn_capture.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btn_capture.Location" type="System.Drawing.Point, System.Drawing">
+    <value>404, 446</value>
+  </data>
+  <data name="btn_capture.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btn_capture.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 34</value>
+  </data>
+  <data name="btn_capture.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="btn_capture.Text" xml:space="preserve">
+    <value>Capture</value>
+  </data>
+  <metadata name="toolTip_Capture.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>191, 17</value>
+  </metadata>
+  <data name="btn_capture.ToolTip" xml:space="preserve">
+    <value>Emulate OCC's capture process.
+Show a dialog to capture document and data.</value>
+  </data>
+  <data name="&gt;&gt;btn_capture.Name" xml:space="preserve">
+    <value>btn_capture</value>
+  </data>
+  <data name="&gt;&gt;btn_capture.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_capture.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_capture.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="btn_export.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btn_export.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btn_export.Location" type="System.Drawing.Point, System.Drawing">
+    <value>531, 446</value>
+  </data>
+  <data name="btn_export.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="btn_export.Size" type="System.Drawing.Size, System.Drawing">
+    <value>105, 34</value>
+  </data>
+  <data name="btn_export.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btn_export.Text" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <metadata name="toolTip_Export.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>352, 17</value>
+  </metadata>
+  <data name="btn_export.ToolTip" xml:space="preserve">
+    <value>Emulate OCC's export process.
+Store data in the backend</value>
+  </data>
+  <data name="&gt;&gt;btn_export.Name" xml:space="preserve">
+    <value>btn_export</value>
+  </data>
+  <data name="&gt;&gt;btn_export.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_export.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_export.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="lbl_message.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_message.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 10.2pt</value>
+  </data>
+  <data name="lbl_message.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 48</value>
+  </data>
+  <data name="lbl_message.Size" type="System.Drawing.Size, System.Drawing">
+    <value>70, 20</value>
+  </data>
+  <data name="lbl_message.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="lbl_message.Text" xml:space="preserve">
+    <value>Schema</value>
+  </data>
+  <data name="&gt;&gt;lbl_message.Name" xml:space="preserve">
+    <value>lbl_message</value>
+  </data>
+  <data name="&gt;&gt;lbl_message.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_message.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_message.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="richTextBox_settings.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom, Left, Right</value>
+  </data>
+  <data name="richTextBox_settings.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Courier New, 7.8pt</value>
+  </data>
+  <data name="richTextBox_settings.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 80</value>
+  </data>
+  <data name="richTextBox_settings.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="richTextBox_settings.Size" type="System.Drawing.Size, System.Drawing">
+    <value>755, 342</value>
+  </data>
+  <data name="richTextBox_settings.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="richTextBox_settings.Text" xml:space="preserve">
+    <value>&lt;undefined&gt;</value>
+  </data>
+  <data name="&gt;&gt;richTextBox_settings.Name" xml:space="preserve">
+    <value>richTextBox_settings</value>
+  </data>
+  <data name="&gt;&gt;richTextBox_settings.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RichTextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;richTextBox_settings.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;richTextBox_settings.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>503, 17</value>
+  </metadata>
+  <data name="preferencesToolStripMenuItem.ShortcutKeyDisplayString" xml:space="preserve">
+    <value />
+  </data>
+  <data name="preferencesToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Control+P</value>
+  </data>
+  <data name="preferencesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="preferencesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Preferences</value>
+  </data>
+  <data name="openLocationToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Control+O</value>
+  </data>
+  <data name="openLocationToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="openLocationToolStripMenuItem.Text" xml:space="preserve">
+    <value>Open Location...</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="aboutToolStripMenuItem.Text" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="exitToolStripMenuItem.ShortcutKeys" type="System.Windows.Forms.Keys, System.Windows.Forms">
+    <value>Control+E</value>
+  </data>
+  <data name="exitToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>243, 26</value>
+  </data>
+  <data name="exitToolStripMenuItem.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="fileToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 27</value>
+  </data>
+  <data name="fileToolStripMenuItem.Text" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="cbox_extensionSelector.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Segoe UI, 7.8pt</value>
+  </data>
+  <data name="cbox_extensionSelector.Size" type="System.Drawing.Size, System.Drawing">
+    <value>200, 27</value>
+  </data>
+  <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="menuStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>5, 2, 0, 2</value>
+  </data>
+  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>819, 31</value>
+  </data>
+  <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="menuStrip1.Text" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Name" xml:space="preserve">
+    <value>menuStrip1</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <metadata name="statusStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>634, 17</value>
+  </metadata>
+  <data name="lbl_status.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 17</value>
+  </data>
+  <data name="statusStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 495</value>
+  </data>
+  <data name="statusStrip1.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>1, 0, 13, 0</value>
+  </data>
+  <data name="statusStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>819, 22</value>
+  </data>
+  <data name="statusStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="statusStrip1.Text" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Name" xml:space="preserve">
+    <value>statusStrip1</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.StatusStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;statusStrip1.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="chkbox_clear.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="chkbox_clear.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chkbox_clear.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 436</value>
+  </data>
+  <data name="chkbox_clear.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="chkbox_clear.Size" type="System.Drawing.Size, System.Drawing">
+    <value>204, 21</value>
+  </data>
+  <data name="chkbox_clear.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="chkbox_clear.Text" xml:space="preserve">
+    <value>Clear location before export</value>
+  </data>
+  <data name="&gt;&gt;chkbox_clear.Name" xml:space="preserve">
+    <value>chkbox_clear</value>
+  </data>
+  <data name="&gt;&gt;chkbox_clear.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chkbox_clear.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chkbox_clear.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btn_exit.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="btn_exit.Location" type="System.Drawing.Point, System.Drawing">
+    <value>727, 449</value>
+  </data>
+  <data name="btn_exit.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btn_exit.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 28</value>
+  </data>
+  <data name="btn_exit.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="btn_exit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="&gt;&gt;btn_exit.Name" xml:space="preserve">
+    <value>btn_exit</value>
+  </data>
+  <data name="&gt;&gt;btn_exit.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_exit.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_exit.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btn_font.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Right</value>
+  </data>
+  <data name="btn_font.Location" type="System.Drawing.Point, System.Drawing">
+    <value>691, 46</value>
+  </data>
+  <data name="btn_font.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btn_font.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 28</value>
+  </data>
+  <data name="btn_font.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="btn_font.Text" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="&gt;&gt;btn_font.Name" xml:space="preserve">
+    <value>btn_font</value>
+  </data>
+  <data name="&gt;&gt;btn_font.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btn_font.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;btn_font.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lbl_location.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lbl_location.Location" type="System.Drawing.Point, System.Drawing">
+    <value>278, 7</value>
+  </data>
+  <data name="lbl_location.Size" type="System.Drawing.Size, System.Drawing">
+    <value>24, 17</value>
+  </data>
+  <data name="lbl_location.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="lbl_location.Text" xml:space="preserve">
+    <value>??</value>
+  </data>
+  <data name="&gt;&gt;lbl_location.Name" xml:space="preserve">
+    <value>lbl_location</value>
+  </data>
+  <data name="&gt;&gt;lbl_location.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_location.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;lbl_location.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="pict_Icon.Location" type="System.Drawing.Point, System.Drawing">
+    <value>256, 8</value>
+  </data>
+  <data name="pict_Icon.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="pict_Icon.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 16</value>
+  </data>
+  <data name="pict_Icon.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="pict_Icon.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;pict_Icon.Name" xml:space="preserve">
+    <value>pict_Icon</value>
+  </data>
+  <data name="&gt;&gt;pict_Icon.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pict_Icon.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;pict_Icon.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="chbox_reloadConfiguration.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Left</value>
+  </data>
+  <data name="chbox_reloadConfiguration.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chbox_reloadConfiguration.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 462</value>
+  </data>
+  <data name="chbox_reloadConfiguration.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="chbox_reloadConfiguration.Size" type="System.Drawing.Size, System.Drawing">
+    <value>192, 21</value>
+  </data>
+  <data name="chbox_reloadConfiguration.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="chbox_reloadConfiguration.Text" xml:space="preserve">
+    <value>Re-load last configuration</value>
+  </data>
+  <data name="&gt;&gt;chbox_reloadConfiguration.Name" xml:space="preserve">
+    <value>chbox_reloadConfiguration</value>
+  </data>
+  <data name="&gt;&gt;chbox_reloadConfiguration.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chbox_reloadConfiguration.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chbox_reloadConfiguration.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="chbox_ignoreEmtpyFields.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="chbox_ignoreEmtpyFields.Location" type="System.Drawing.Point, System.Drawing">
+    <value>35, 48</value>
+  </data>
+  <data name="chbox_ignoreEmtpyFields.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 21</value>
+  </data>
+  <data name="chbox_ignoreEmtpyFields.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="chbox_ignoreEmtpyFields.Text" xml:space="preserve">
+    <value>IgnoreEmptyFields</value>
+  </data>
+  <data name="&gt;&gt;chbox_ignoreEmtpyFields.Name" xml:space="preserve">
+    <value>chbox_ignoreEmtpyFields</value>
+  </data>
+  <data name="&gt;&gt;chbox_ignoreEmtpyFields.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;chbox_ignoreEmtpyFields.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;chbox_ignoreEmtpyFields.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>45</value>
+  </metadata>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>819, 517</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 2, 3, 2</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>834, 518</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>OCC Export Extension Mock</value>
+  </data>
+  <data name="&gt;&gt;toolTip_Configure.Name" xml:space="preserve">
+    <value>toolTip_Configure</value>
+  </data>
+  <data name="&gt;&gt;toolTip_Configure.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTip_Capture.Name" xml:space="preserve">
+    <value>toolTip_Capture</value>
+  </data>
+  <data name="&gt;&gt;toolTip_Capture.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolTip_Export.Name" xml:space="preserve">
+    <value>toolTip_Export</value>
+  </data>
+  <data name="&gt;&gt;toolTip_Export.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Name" xml:space="preserve">
+    <value>fileToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;fileToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;preferencesToolStripMenuItem.Name" xml:space="preserve">
+    <value>preferencesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;preferencesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;openLocationToolStripMenuItem.Name" xml:space="preserve">
+    <value>openLocationToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;openLocationToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;aboutToolStripMenuItem.Name" xml:space="preserve">
+    <value>aboutToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;aboutToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Name" xml:space="preserve">
+    <value>exitToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;exitToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cbox_extensionSelector.Name" xml:space="preserve">
+    <value>cbox_extensionSelector</value>
+  </data>
+  <data name="&gt;&gt;cbox_extensionSelector.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lbl_status.Name" xml:space="preserve">
+    <value>lbl_status</value>
+  </data>
+  <data name="&gt;&gt;lbl_status.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripStatusLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Main</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

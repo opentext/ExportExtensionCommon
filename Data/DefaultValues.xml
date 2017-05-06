@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="Windows-1252" ?>
+<Settings>
+
+<Setting Extension="SIEE_Sample_Settings" Property="InvoiceNo" Value="I-4711-2014"/>
+<Setting Extension="SIEE_Sample_Settings" Property="InvoiceDate" Value="03.10.2014"/>
+<Setting Extension="SIEE_Sample_Settings" Property="PoNumber" Value="Po123"/>
+<Setting Extension="SIEE_Sample_Settings" Property="Items" Value=
+"Banana;0.25;10;2.50&#10;
+Apples;12;300;260.00&#10;
+Caviar;95.00;10;950.00"/>
+<Setting Extension="SIEE_Sample_Settings" Property="InvoiceTotal" Value="1257,50"/>
+
+<Setting Extension="SIEE_Email_Settings" Property="From_name" Value="OCC"/>
+<Setting Extension="SIEE_Email_Settings" Property="To_email" Value="jschacht@opentext.com"/>
+<Setting Extension="SIEE_Email_Settings" Property="Cc_email" Value="johannes.schacht.captaris@googlemail.com"/>
+<Setting Extension="SIEE_Email_Settings" Property="Bcc_email" Value=""/>
+<Setting Extension="SIEE_Email_Settings" Property="Subject" Value="Greetings from OCC"/>
+<Setting Extension="SIEE_Email_Settings" Property="Body" Value="Hello World!"/>
+
+<Setting Extension="SIEE_SQL_Settings" Property="Vendor" Value="Import Export"/>
+<Setting Extension="SIEE_SQL_Settings" Property="InvoiceNumber" Value="I-123-2014"/>
+<Setting Extension="SIEE_SQL_Settings" Property="Amount" Value="123"/>
+
+<Setting Extension="SIEE_HelloWorld_Settings" Property="Hello" Value="World"/>
+
+<Setting Extension="SIEE_Excel_Settings" Property="Vendor" Value="ACME Inc."/>
+<Setting Extension="SIEE_Excel_Settings" Property="InvoiceNumber" Value="I-123-2014"/>
+<Setting Extension="SIEE_Excel_Settings" Property="Amount" Value="125"/>
+
+<!--
+<Setting Extension="ProcessSuiteSettings" Property="Name" Value="Hugo"/>
+<Setting Extension="ProcessSuiteSettings" Property="Since" Value="2015-04-26"/>
+<Setting Extension="ProcessSuiteSettings" Property="Approved" Value="true"/>
+-->
+<Setting Extension="ProcessSuiteSettings" Property="Invoice_InvoiceDate" Value="2015-05-02"/>
+<Setting Extension="ProcessSuiteSettings" Property="Invoice_InvoiceNumber" Value="I-123"/>
+<Setting Extension="ProcessSuiteSettings" Property="Invoice_PoNumber" Value="P-456"/>
+<Setting Extension="ProcessSuiteSettings" Property="Invoice_TotalAmount" Value="200"/>
+
+<Setting Extension="ProcessSuiteSettings" Property="Vendors_CompanyName" Value="Acme Inc."/>
+<Setting Extension="ProcessSuiteSettings" Property="Vendors_Name" Value="Acme Inc."/>
+<Setting Extension="ProcessSuiteSettings" Property="Vendors_Street" Value="Red River trail 44"/>
+<Setting Extension="ProcessSuiteSettings" Property="Vendors_City" Value="Dallas"/>
+<Setting Extension="ProcessSuiteSettings" Property="Vendors_State" Value="Tx"/>
+<Setting Extension="ProcessSuiteSettings" Property="Vendors_ZIP" Value="47110"/>
+
+<Setting Extension="ProcessSuiteSettings" Property="LineItems" Value=
+"Pcs;Banana;8.750;35;0.25&#10;
+Pcs;Banana;25;100;0.25&#10;
+Boxes;Caviar;150;5;30"/>
+<Setting Extension="ProcessSuiteSettings" Property="Taxes" Value=
+"33;3.3&#10;
+5;2.0"/>
+
+<Setting Extension="SIEE_CMIS_Settings" Property="F1" Value="Folder1"/>
+<Setting Extension="SIEE_CMIS_Settings" Property="F2" Value="SomeName"/>
+
+<Setting Extension="eDocsSettings" Property="AUTHOR_ID" Value="JOHANNES"/>
+<Setting Extension="eDocsSettings" Property="ABSTRACT" Value="This is a test document"/>
+
+<Setting Extension="SqlEESettings" Property="MyDate" Value="01.02.2016"/>
+<Setting Extension="SqlEESettings" Property="MyText" Value="Hello World"/>
+
+<Setting Extension="SPOSettings" Property="Title" Value="my document title"/>
+<Setting Extension="SPOSettings" Property="myDate" Value="02.03.2017"/>
+<Setting Extension="SPOSettings" Property="mySingleTextLine1" Value="Hello World!"/>
+</Settings>
