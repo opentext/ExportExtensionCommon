@@ -51,8 +51,10 @@ namespace ExportExtensionCommon
                     catch (Exception e)
                     {
                         Trace.WriteError("SIEEExport failed for batch " + doc.BatchId, e);
+                        if (e.InnerException != null)
+                            Trace.WriteError("SIEEExport failed for batch (details) " + doc.BatchId, e.InnerException);
                         doc.Succeeded = false;
-                        doc.ErrorMsg = e.Message;
+                        doc.ErrorMsg = e.Message + e.InnerException != null ? "\n" + e.InnerException.Message : null;
                    }
                 }
             }

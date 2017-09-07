@@ -22,8 +22,8 @@ using CaptureCenter.HelloWorld;
 #if SPO
 using CaptureCenter.SPO;
 #endif
-#if AX
-using CaptureCenter.ApplicationExtender;
+#if Email
+using CaptureCenter.EmailExport;
 #endif
 
 namespace ExportExtensionCommon
@@ -77,8 +77,8 @@ namespace ExportExtensionCommon
 #if SPO
             SIEEFactoryManager.Add(new SPOFactory());
 #endif
-#if AX
-            SIEEFactoryManager.Add(new AXFactory());
+#if Email
+            SIEEFactoryManager.Add(new EmailExportFactory());
 #endif
 
             foreach (string ext in SIEEFactoryManager.GetKeysFromTypeName())
