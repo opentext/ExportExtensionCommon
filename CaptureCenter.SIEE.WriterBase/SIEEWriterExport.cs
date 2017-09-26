@@ -17,11 +17,11 @@ namespace ExportExtensionCommon
     /// calls the export function that is drawn from the factory. It also handles retries as defined by 
     /// properties from the destination.
 
-    [ComponentSettings(typeof(SIEEWriterSettings))]
+    [ComponentSettings(typeof(EECWriterSettings))]
     [ComponentDescription("SIEE_Export", "Transformer", "SIEE Adapter", "OpenText")]
-    public sealed class SIEEWriterExport : BaseTransformer, IConfigurable2<SIEEWriterSettings>, IDisposable
+    public sealed class SIEEWriterExport : BaseTransformer, IConfigurable2<EECWriterSettings>, IDisposable
     {
-        private SIEEWriterSettings writerSettings;
+        private EECWriterSettings writerSettings;
 
         // This list is used for unit testing. If it's empty, it is ignored
         // If if contains values, they are field names and only those fields get
@@ -33,7 +33,7 @@ namespace ExportExtensionCommon
             FieldMapping4UnitTest = new List<string>(); 
         }
         
-        public void Configure(SIEEWriterSettings settings) 
+        public void Configure(EECWriterSettings settings) 
         { 
             this.writerSettings = settings; 
         }

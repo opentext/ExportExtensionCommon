@@ -49,7 +49,7 @@ namespace ExportExtensionCommon
             // Create an xml document from the data pool
             XmlDocument data = pool.RootNode.InnerXmlNode.OwnerDocument;
 
-            SIEEWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
+            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
                 { new SIEEField() { Name = "field1", ExternalId = "" } },
                 { new SIEEField() { Name = "field2", ExternalId = "" } },
                 { new SIEEField() { Name = "field3", Value = "default value dor field3" } }
@@ -486,7 +486,7 @@ namespace ExportExtensionCommon
             SIEEFactoryManager.Add(factory);
 
             // We use a default SIEE_Adapter_Settings object and set the Schema
-            SIEEWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
+            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
                 { new SIEEField() { Name = "field1", ExternalId = "" } },
                 { new SIEEField() { Name = "field2", ExternalId = "" } },
             });
@@ -546,7 +546,7 @@ namespace ExportExtensionCommon
             XmlDocument data;
             data = pool.RootNode.InnerXmlNode.OwnerDocument;
 
-            SIEEWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
+            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
                 { new SIEEField() { Name = "field1",  } },
                 { new SIEEField() { Name = "field2", Cardinality = 2 } },
                 { new SIEEField() { Name = "field3", Cardinality = 3 } },
@@ -636,9 +636,9 @@ namespace ExportExtensionCommon
         [Serializable]
         public class Test_SIEESettings : SIEESettings { } // just there to index the SIEE_FactoryManager
 
-        private SIEEWriterSettings createWriterSettings(SIEEFieldlist schema)
+        private EECWriterSettings createWriterSettings(SIEEFieldlist schema)
         {
-            SIEEWriterSettings adapterSettings = new SIEEWriterSettings();
+            EECWriterSettings adapterSettings = new EECWriterSettings();
             adapterSettings.SerializedSchema = SIEESerializer.ObjectToString(schema);
             Test_SIEESettings myTestSettings = new Test_SIEESettings();
             adapterSettings.SettingsTypename = myTestSettings.GetType().ToString();
