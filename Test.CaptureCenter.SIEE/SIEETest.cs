@@ -473,7 +473,7 @@ namespace ExportExtensionCommon
         [TestCategory("SIEE Base")]
         public void t09_SIEEAnnotation()
         {
-            // Create s data pool
+            // Create a data pool
             DataPool pool = createDataPool();
             pool.RootNode.Documents[0].Fields["field1"].Value = "field1value";
 
