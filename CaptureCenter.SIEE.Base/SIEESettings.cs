@@ -1,22 +1,19 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ExportExtensionCommon
 {
+    /// Base class for OCC settings objects
     [Serializable]
     public class SIEESettings : ICloneable
     {
-        public SIEESettings() 
-        { 
-        }
+        public SIEESettings() { }
         
-        /// creates s schema (fieldlist) and return a reference to it
-        public virtual SIEEFieldlist CreateSchema()
-        {
-            return null;
-        }
+        /// Creates a schema (fieldlist) and return a reference to it.
+        /// Needs to be overridden in derived classes.
+        public virtual SIEEFieldlist CreateSchema() { return null; }
 
         public SIEEFieldlist CreateSchemaAndRectifyFieldNames()
         {
@@ -28,6 +25,7 @@ namespace ExportExtensionCommon
         /// The document name specification string defines how the resulting document should be built.
         /// It contains elements like <Date> or <BatchId> that are substituted with concrete values.
         /// When the export destination does not support it, it should return null.
+        /// Function needs to be overridden in derived classes.
         public virtual string GetDocumentNameSpec() { return null; }
 
         public override string ToString()

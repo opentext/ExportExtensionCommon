@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Xml;
 
 using RightDocs.Common;
@@ -17,11 +17,11 @@ namespace ExportExtensionCommon
     /// calls the export function that is drawn from the factory. It also handles retries as defined by 
     /// properties from the destination.
 
-    [ComponentSettings(typeof(EECWriterSettings))]
+    [ComponentSettings(typeof(SIEEWriterSettings))]
     [ComponentDescription("SIEE_Export", "Transformer", "SIEE Adapter", "OpenText")]
-    public sealed class SIEEWriterExport : BaseTransformer, IConfigurable2<EECWriterSettings>, IDisposable
+    public sealed class SIEEWriterExport : BaseTransformer, IConfigurable2<SIEEWriterSettings>, IDisposable
     {
-        private EECWriterSettings writerSettings;
+        private SIEEWriterSettings writerSettings;
 
         // This list is used for unit testing. If it's empty, it is ignored
         // If if contains values, they are field names and only those fields get
@@ -33,7 +33,7 @@ namespace ExportExtensionCommon
             FieldMapping4UnitTest = new List<string>(); 
         }
         
-        public void Configure(EECWriterSettings settings) 
+        public void Configure(SIEEWriterSettings settings) 
         { 
             this.writerSettings = settings; 
         }
@@ -142,7 +142,7 @@ namespace ExportExtensionCommon
                 if (dataPoolField is LookupList)
                 {
                     foreach (Field dataPoolSubfield in dataPoolField.Fields) 
-                        setFieldValue(fieldlist, dataPoolField);
+                        setFieldValue(fieldlist, dataPoolSubfield);
                     continue;
                 }
                 if (dataPoolField is Table)
@@ -199,14 +199,15 @@ namespace ExportExtensionCommon
         {
             // Get field mapping. Normally the field is mapped by OCC.
             // For unit test it may also be set by FieldMapping4UnitTest
-            CustomExportDestinationField edf;
-            edf = this.writerSettings.FieldsMapper.GetExternalField(dataPoolField);
-            if (edf == null && // unit test -> take data pool field name directly
-                (FieldMapping4UnitTest.Count == 0 || FieldMapping4UnitTest.Contains(dataPoolField.Name)))
+            CustomExportDestinationField edf = null;
+
+            if (FieldMapping4UnitTest_Contains(dataPoolField.Name))
             {
                 edf = new CustomExportDestinationField();
                 edf.Name = dataPoolField.Name;
-            }
+            } else
+                edf = this.writerSettings.FieldsMapper.GetExternalField(dataPoolField);
+
             if (edf == null) return;
 
             SIEEField field = fieldlist.GetFieldByName(edf.Name);
@@ -216,8 +217,9 @@ namespace ExportExtensionCommon
             {
                 int cnt = 0;
                 foreach (IField f in dataPoolField.Fields)
-                    if (field.Cardinality < 0 || cnt++ < field.Cardinality)
+                    if (field.Cardinality < 0 || cnt++ < field.Cardinality) // Cardinality < 0: infinite
                         field.ValueList.Add(f.Value);
+
                 if (field.Cardinality > 0 && dataPoolField.Fields.Count > field.Cardinality)
                     SIEEExport.Trace.WriteError(
                         "Value list truncated. Field=" + edf.Name +
@@ -225,6 +227,17 @@ namespace ExportExtensionCommon
                         " FieldCcount=" + dataPoolField.Fields.Count
                     );
             }
+        }
+
+        private bool FieldMapping4UnitTest_Contains(string filename)
+        {
+            System.Text.RegularExpressions.Regex expr;
+            foreach (string s in FieldMapping4UnitTest)
+            {
+                expr = new System.Text.RegularExpressions.Regex(s);
+                if (expr.Match(filename).Success) return true;
+            }
+            return false;
         }
 
 

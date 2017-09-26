@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Xml;
 using System.Linq;
@@ -47,10 +47,9 @@ namespace ExportExtensionCommon
             doc.Fields.Add(new Field(pool, "field3", "field3value")); // should be ignored
 
             // Create an xml document from the data pool
-            XmlDocument data;
-            data = pool.RootNode.InnerXmlNode.OwnerDocument;
+            XmlDocument data = pool.RootNode.InnerXmlNode.OwnerDocument;
 
-            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
+            SIEEWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
                 { new SIEEField() { Name = "field1", ExternalId = "" } },
                 { new SIEEField() { Name = "field2", ExternalId = "" } },
                 { new SIEEField() { Name = "field3", Value = "default value dor field3" } }
@@ -72,7 +71,7 @@ namespace ExportExtensionCommon
             SIEEFieldlist fieldlist = lastFieldList;
             Assert.AreEqual("field1value", fieldlist.Where(n => n.Name == "field1").First().Value, "field1 != null");
             Assert.IsNull(fieldlist.Where(n => n.Name == "field2").First().Value, "field2 == null");
-            Assert.AreEqual("default value dor field3", fieldlist.Where(n => n.Name == "field3").First().Value, "field3: Default value");
+            Assert.AreEqual("default value dor field3", fieldlist.Where(n => n.Name == "field3").First().Value, "field3 has default value");
         }
         #endregion
 
@@ -487,7 +486,7 @@ namespace ExportExtensionCommon
             SIEEFactoryManager.Add(factory);
 
             // We use a default SIEE_Adapter_Settings object and set the Schema
-            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
+            SIEEWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
                 { new SIEEField() { Name = "field1", ExternalId = "" } },
                 { new SIEEField() { Name = "field2", ExternalId = "" } },
             });
@@ -529,12 +528,12 @@ namespace ExportExtensionCommon
             // First we create the runtime document that is to be exported.
             DataPool pool = createDataPool();
             Document doc = pool.RootNode.Documents[0];
+            doc.Fields["field1"].Value = "field1value";
             doc.Fields.Add(new Field(pool, "field2", "field2value"));
             doc.Fields.Add(new Field(pool, "field3", "field3value"));
             doc.Fields.Add(new Field(pool, "field4", "field4value"));
             doc.Fields.Add(new Field(pool, "field5", "field5value"));
             doc.Fields.Add(new Field(pool, "field6", "field6value"));
-            doc.Fields["field1"].Value = "field1value";
 
             addFieldList(pool, doc.Fields["field1"], 2);    // to ba ignored
                                                             // field2 --> no list
@@ -547,7 +546,7 @@ namespace ExportExtensionCommon
             XmlDocument data;
             data = pool.RootNode.InnerXmlNode.OwnerDocument;
 
-            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
+            SIEEWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist() {
                 { new SIEEField() { Name = "field1",  } },
                 { new SIEEField() { Name = "field2", Cardinality = 2 } },
                 { new SIEEField() { Name = "field3", Cardinality = 3 } },
@@ -557,6 +556,13 @@ namespace ExportExtensionCommon
             });
 
             SIEEWriterExport adapterExport = new SIEEWriterExport();
+            adapterExport.FieldMapping4UnitTest.Add("field1");
+            adapterExport.FieldMapping4UnitTest.Add("field2");
+            adapterExport.FieldMapping4UnitTest.Add("field3");
+            adapterExport.FieldMapping4UnitTest.Add("field4");
+            adapterExport.FieldMapping4UnitTest.Add("field5");
+            adapterExport.FieldMapping4UnitTest.Add("field6");
+
             adapterExport.Configure(adapterSettings);
 
             SIEEFieldlist lastFieldList = null;
@@ -630,15 +636,15 @@ namespace ExportExtensionCommon
         [Serializable]
         public class Test_SIEESettings : SIEESettings { } // just there to index the SIEE_FactoryManager
 
-        private EECWriterSettings createWriterSettings(SIEEFieldlist schema)
+        private SIEEWriterSettings createWriterSettings(SIEEFieldlist schema)
         {
-            EECWriterSettings adapterSettings = new EECWriterSettings();
+            SIEEWriterSettings adapterSettings = new SIEEWriterSettings();
             adapterSettings.SerializedSchema = SIEESerializer.ObjectToString(schema);
             Test_SIEESettings myTestSettings = new Test_SIEESettings();
             adapterSettings.SettingsTypename = myTestSettings.GetType().ToString();
             string xmlString = Serializer.SerializeToXmlString(myTestSettings, System.Text.Encoding.Unicode);
             adapterSettings.SerializedSettings = SIEESerializer.ObjectToString(xmlString);
-            adapterSettings.FieldsMapper = new CustomFieldsMapper(); // (Empfy), does nothing but must he there
+            adapterSettings.FieldsMapper = new CustomFieldsMapper(); // (Empty), does nothing but must he there
             return adapterSettings;
         }
         #endregion

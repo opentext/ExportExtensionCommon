@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,7 +12,7 @@ namespace ExportExtensionCommon
             new InputGestureCollection(new List<InputGesture>() {
                 new KeyGesture(Key.O, ModifierKeys.Alt | ModifierKeys.Control)
             }));
-        public static RoutedUICommand OenTabs { get { return openTabs; } }
+        public static RoutedUICommand OpenTabs { get { return openTabs; } }
 
         private static RoutedUICommand loadDefaultsFile = new RoutedUICommand(
             "get file name of defaults file", "loadDefaultsFile", typeof(SIEECommands),
@@ -37,7 +37,7 @@ namespace ExportExtensionCommon
         {
             DataContext = viewModel;
             viewModel.Control = this;
-            CommandBindings.Add(new CommandBinding(SIEECommands.OenTabs, viewModel.OpenTabs));
+            CommandBindings.Add(new CommandBinding(SIEECommands.OpenTabs, viewModel.OpenTabs));
             CommandBindings.Add(new CommandBinding(SIEECommands.LoadDefaultsFile, viewModel.LoadDefaultsFile));
             CommandBindings.Add(new CommandBinding(SIEECommands.LoadDefaults, viewModel.LoadDefaults));
         }
