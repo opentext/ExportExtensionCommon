@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;CMIS Email</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__CMIS __EMAIL __SPO __SQL __HELLO_WORLD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
@@ -150,16 +150,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\ExportExtension_eDOCS\CaptureCenter.eDocs.Adapter\CaptureCenter.eDocs.Adapter.csproj">
-      <Project>{dad9ff7e-a2ed-4b94-94c6-7c45db3abd4d}</Project>
-      <Name>CaptureCenter.eDocs.Adapter</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\ExportExtension_eDOCS\eDocsClient\eDocsClient.csproj">
-      <Project>{5c8f2a67-91ab-4ba5-9666-9e81626bd5dc}</Project>
-      <Name>eDocsClient</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
