@@ -94,8 +94,8 @@ namespace ExportExtensionCommon
             }
             catch (Exception e)
             {
-                SIEEExport.Trace.WriteError("SIEEWriterExport: Batch " + batchId + "failed.", e);
-                throw(e);
+                SIEEExport.Trace.WriteError("SIEEWriterExport: Batch " + batchId + "failed.\n" + e.ToString());
+                throw (new Exception(e.ToString()));
             }
 
             foreach (SIEEDocument doc in batch)
@@ -108,11 +108,15 @@ namespace ExportExtensionCommon
                 exportStateParams = DataPoolWorkflowStateExtensions.GetExportStateParams(occDocument);
 
                 if (doc.Succeeded)
+                {
+                    occDocument.Annotations.Add(new Annotation(pool, "SIEETargetDocumentId", doc.TargetDocumentId));
+                    occDocument.Annotations.Add(new Annotation(pool, "SIEETargetType", description.TypeName));
                     exportStateParams.state = ExportState.Succeeded;
+                }
                 else
                 {
                     exportStateParams.message = "Export failed: " + doc.ErrorMsg;
-                    if (doc.nonRecoverableError) throw new Exception("Fatal export error: " + doc.ErrorMsg);
+                    if (doc.NonRecoverableError) throw new Exception("Fatal export error: " + doc.ErrorMsg);
                 }
 
                 // Set delay time for start of retry

@@ -1,9 +1,8 @@
-using System;
+﻿using System;
 using DOKuStar.Diagnostics.Tracing;
 
 namespace ExportExtensionCommon
 {
-
     public abstract class SIEEExport
     {
         public static readonly ITrace Trace = TraceManager.GetTracer(typeof(SIEEExport));
@@ -50,12 +49,11 @@ namespace ExportExtensionCommon
                     }
                     catch (Exception e)
                     {
-                        Trace.WriteError("SIEEExport failed for batch " + doc.BatchId, e);
-                        if (e.InnerException != null)
-                            Trace.WriteError("SIEEExport failed for batch (details) " + doc.BatchId, e.InnerException);
+                        Trace.WriteError("SIEEExport failed for batch " + doc.BatchId);
+                        Trace.WriteError(e.ToString());
                         doc.Succeeded = false;
-                        doc.ErrorMsg = e.Message + (e.InnerException != null ?  "\n" + e.InnerException.Message :  null);
-                   }
+                        doc.ErrorMsg = e.ToString();
+                    }
                 }
             }
             finally 

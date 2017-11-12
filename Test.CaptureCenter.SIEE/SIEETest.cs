@@ -19,7 +19,7 @@ namespace ExportExtensionCommon
         {
             SIEEMessageBox.Suppress = true;
             // Initialize Factory manager with test export extension
-            SIEEFactoryManager.Add(new Test_SIEEFactoryt());
+            SIEEFactoryManager.Add(new Test_SIEEFactory());
         }
 
         #region Empty field handling
@@ -482,7 +482,7 @@ namespace ExportExtensionCommon
             data = pool.RootNode.InnerXmlNode.OwnerDocument;
 
             // We use a dedicated SIEE_Adapter for this test.  We must first register it in the FactoryManager.
-            SIEEFactory factory = new Test_SIEEFactoryt();
+            SIEEFactory factory = new Test_SIEEFactory();
             SIEEFactoryManager.Add(factory);
 
             // We use a default SIEE_Adapter_Settings object and set the Schema
@@ -598,6 +598,34 @@ namespace ExportExtensionCommon
         }
         #endregion
 
+        #region Target document id handling
+        [TestMethod]
+        [TestCategory("SIEE Base")]
+        public void t11_TargetDocumentId()
+        {
+            // Create xml document
+            XmlDocument data = createDataPool().RootNode.InnerXmlNode.OwnerDocument;
+
+            // We use a dedicated SIEE_Adapter for this test.  We must first register it in the FactoryManager.
+            SIEEFactory factory = new Test_SIEEFactory();
+            SIEEFactoryManager.Add(factory);
+
+            // We use a default SIEE_Adapter_Settings object and set the Schema
+            EECWriterSettings adapterSettings = createWriterSettings(new SIEEFieldlist());
+
+            SIEEWriterExport adapterExport = new SIEEWriterExport();
+            adapterExport.Configure(adapterSettings);
+
+            Test_SIEEExport.ExportFunc = (settings, doc, name, fieldlist) =>
+            {
+                doc.TargetDocumentId = "4711";
+            };
+
+            DataPool pool = new DataPool(adapterExport.transform(data, null));
+            Assert.AreEqual("4711", pool.RootNode.Documents[0].Annotations["SIEETargetDocumentId"].Value);
+            Assert.AreEqual("SIEE_Adapter", pool.RootNode.Documents[0].Annotations["SIEETargetType"].Value);
+        }
+        #endregion
 
         #region Utilities
         private DataPool createDataPool()
@@ -617,7 +645,7 @@ namespace ExportExtensionCommon
         #endregion
 
         #region Test factory
-        public class Test_SIEEFactoryt : SIEEFactory
+        public class Test_SIEEFactory : SIEEFactory
         {
             public override SIEESettings CreateSettings() { return new Test_SIEESettings(); }
             public override SIEEExport CreateExport() { return new Test_SIEEExport(); }

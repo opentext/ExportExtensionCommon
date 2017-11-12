@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace ExportExtensionCommon
 {
@@ -17,7 +17,9 @@ namespace ExportExtensionCommon
 
         public bool Succeeded { get; set; } = false;
         public string ErrorMsg { get; set; } = "Unknown";
-        public bool nonRecoverableError { get; set; } = false;
+        public bool NonRecoverableError { get; set; } = false;
+
+        public string TargetDocumentId { get; set; }    // id of the document in the target system (whatever that is)
 
         public override string ToString()
         {
