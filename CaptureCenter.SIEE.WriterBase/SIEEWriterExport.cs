@@ -109,8 +109,8 @@ namespace ExportExtensionCommon
 
                 if (doc.Succeeded)
                 {
-                    occDocument.Annotations.Add(new Annotation(pool, "SIEETargetDocumentId", doc.TargetDocumentId));
-                    occDocument.Annotations.Add(new Annotation(pool, "SIEETargetType", description.TypeName));
+                    occDocument.Annotations.Add(new Annotation(pool, "TargetDocumentId", doc.TargetDocumentId));
+                    occDocument.Annotations.Add(new Annotation(pool, "TargetType", description.TypeName));
                     exportStateParams.state = ExportState.Succeeded;
                 }
                 else

@@ -622,8 +622,8 @@ namespace ExportExtensionCommon
             };
 
             DataPool pool = new DataPool(adapterExport.transform(data, null));
-            Assert.AreEqual("4711", pool.RootNode.Documents[0].Annotations["SIEETargetDocumentId"].Value);
-            Assert.AreEqual("SIEE_Adapter", pool.RootNode.Documents[0].Annotations["SIEETargetType"].Value);
+            Assert.AreEqual("4711", pool.RootNode.Documents[0].Annotations["TargetDocumentId"].Value);
+            Assert.AreEqual("SIEE_Adapter", pool.RootNode.Documents[0].Annotations["TargetType"].Value);
         }
         #endregion
 
