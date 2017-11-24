@@ -94,8 +94,8 @@ namespace ExportExtensionCommon
             }
             catch (Exception e)
             {
-                SIEEExport.Trace.WriteError("SIEEWriterExport: Batch " + batchId + "failed.\n" + e.ToString());
-                throw (new Exception(e.ToString()));
+                SIEEExport.Trace.WriteError("SIEEWriterExport: Batch " + batchId + " failed", e);
+                throw;
             }
 
             foreach (SIEEDocument doc in batch)

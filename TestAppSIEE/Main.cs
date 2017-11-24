@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 
+using DOKuStar.Diagnostics.Tracing;
+
 #if ProcessSuite
 using CaptureCenter.ProcessSuite;
 #endif
@@ -58,6 +60,9 @@ namespace ExportExtensionCommon
             string basePath = AppDomain.CurrentDomain.BaseDirectory;
             if (!Directory.Exists(basePath))
                 return;
+
+        string targetTraceFile = Path.Combine(TraceManager.RootPath, "CaptureCenter.traceconfig");
+        TraceConfigurator.ConfigureAndWatch(new FileInfo(targetTraceFile));
 
 #if ProcessSuite
             SIEEFactoryManager.Add(new ProcessSuiteFactory());

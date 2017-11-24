@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;__CMIS __EMAIL __SPO __SQL __HELLO_WORLD</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__CMIS __EMAIL __SPO __SQL HELLO_WORLD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
@@ -61,6 +61,10 @@
     </Reference>
     <Reference Include="DOKuStar.Data.Xml.Norm">
       <HintPath>..\..\..\..\..\_bin\DOKuStar.Data.Xml.Norm.dll</HintPath>
+    </Reference>
+    <Reference Include="DOKuStar.Diagnostics.Tracing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ca08498c01dc4d5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\_bin\DOKuStar.Diagnostics.Tracing.dll</HintPath>
     </Reference>
     <Reference Include="DOKuStar.Link">
       <HintPath>..\..\..\..\..\_bin\DOKuStar.Link.dll</HintPath>
