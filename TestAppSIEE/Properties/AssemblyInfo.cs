@@ -1,4 +1,4 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
@@ -10,8 +10,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Open Text")]
 [assembly: AssemblyProduct("Capture Center")]
-[assembly: AssemblyCopyright("Copyright © 2017 Open Text. All Rights Reserved.")]
-[assembly: AssemblyTrademark("Copyright © 2017 Open Text")]
+[assembly: AssemblyCopyright("Copyright © 2018 Open Text. All Rights Reserved.")]
+[assembly: AssemblyTrademark("Copyright © 2018 Open Text")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 
@@ -33,4 +33,4 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("10.6.0.0")]
 [assembly: AssemblyVersion("10.6.0.0")]
-[assembly: AssemblyFileVersion("16.2.161.0")]
+[assembly: AssemblyFileVersion("16.4.150.0")]

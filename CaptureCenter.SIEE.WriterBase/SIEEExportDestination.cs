@@ -5,7 +5,7 @@ using System.Drawing;
 
 namespace ExportExtensionCommon
 {
-    public class SIEEExportDestination : CustomExportDestination, IDisposable
+    public class EECExportDestination : CustomExportDestination, IDisposable
     {
         public List<CustomExportDestinationField> Fields { get; set; }
         protected SIEEFactory factory;
@@ -23,7 +23,7 @@ namespace ExportExtensionCommon
             }
         }
 
-        public SIEEExportDestination()
+        public EECExportDestination()
         {
             Fields = new List<CustomExportDestinationField>();
         }
@@ -39,7 +39,7 @@ namespace ExportExtensionCommon
         {
             get { return settings; }
             set
-            {
+            { 
                 settings = value as EECWriterSettings;
                 settings.SetFactory(factory);
             }
@@ -57,7 +57,7 @@ namespace ExportExtensionCommon
 
             SIEEFieldlist fieldlist = writerSettings.CreateSchema();
 
-            if (fieldlist == null)
+            if (fieldlist == null) 
                 throw (new Exception("No valid definition to create schema"));
 
             foreach (SIEEField field in fieldlist)
@@ -84,7 +84,7 @@ namespace ExportExtensionCommon
         }
         public override List<CustomExportDestinationField> GetFields() { return Fields; }
         public override Type ExportModule { get { return typeof(SIEEWriterExport); } }
-
+        
         // Properties and methods that derive their values from the description object
         public override string TypeName { get { return description.TypeName; } }
         public override string DefaultNewName { get { return description.DefaultNewName; } }
@@ -97,14 +97,14 @@ namespace ExportExtensionCommon
 
         public override object Backup()
         {
-            SIEEExportDestination clone = base.Backup() as SIEEExportDestination;
+            EECExportDestination clone = base.Backup() as EECExportDestination;
             SIEESettings s = (SIEESettings)SIEESerializer.Clone(settings.GetEmbeddedSettings());
             clone.settings.SetEmbeddedSettings(s);
             return clone;
         }
         public override void RestoreFrom(object o)
         {
-            SIEEExportDestination backupExportDestination = o as SIEEExportDestination;
+            EECExportDestination backupExportDestination = o as EECExportDestination;
             base.RestoreFrom(backupExportDestination as CustomExportDestination);
             this.settings.SetEmbeddedSettings(backupExportDestination.settings.GetEmbeddedSettings());
         }

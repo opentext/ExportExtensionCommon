@@ -11,11 +11,14 @@ namespace ExportExtensionCommon
         [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public static bool Dirty = false;
+
         protected void SetField<T>(ref T field, T value, [CallerMemberName]string propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(field, value))
                 return;
 
+            Dirty = true;
             field = value;
             RaisePropertyChanged(propertyName);
         }

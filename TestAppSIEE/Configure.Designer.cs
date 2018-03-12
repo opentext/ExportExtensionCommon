@@ -78,7 +78,7 @@ namespace ExportExtensionCommon
             this.Controls.Add(this.btn_ok);
             this.Controls.Add(this.btn_cancel);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ExportExtensionCommon.Properties.Settings.Default, "ConfigureLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.Location = global::ExportExtensionCommon.Properties.Settings.Default.ConfigureLocation;
+            //this.Location = global::ExportExtensionCommon.Properties.Settings.Default.ConfigureLocation;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Configure";
             this.Text = "Configure";

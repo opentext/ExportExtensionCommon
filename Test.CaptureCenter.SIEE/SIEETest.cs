@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Xml;
 using System.Linq;
@@ -640,6 +640,7 @@ namespace ExportExtensionCommon
             d.Sources.Add(new Source(pool, "Some other not existing path"));
             pool.RootNode.Documents.Add(d);
             pool.RootNode.Fields.Add(new Field(pool, "cc_BatchId", "someBatch"));
+            pool.RootNode.Fields.Add(new Field(pool, "cc_ProfileName", "someProfile"));
             return pool;
         }
         #endregion

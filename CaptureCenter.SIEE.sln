@@ -6,10 +6,21 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptureCenter.SIEE.Base", "CaptureCenter.SIEE.Base\CaptureCenter.SIEE.Base.csproj", "{67BA25A7-1BF6-4E47-B402-201EA2E23985}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.CaptureCenter.SIEE", "Test.CaptureCenter.SIEE\Test.CaptureCenter.SIEE.csproj", "{48FC7400-FA10-42E5-BE00-4E2DEAEA496A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67BA25A7-1BF6-4E47-B402-201EA2E23985} = {67BA25A7-1BF6-4E47-B402-201EA2E23985}
+		{BDE05EF5-13B6-40BE-A34E-C685D3795632} = {BDE05EF5-13B6-40BE-A34E-C685D3795632}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CaptureCenter.SIEE.WriterBase", "CaptureCenter.SIEE.WriterBase\CaptureCenter.SIEE.WriterBase.csproj", "{BDE05EF5-13B6-40BE-A34E-C685D3795632}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67BA25A7-1BF6-4E47-B402-201EA2E23985} = {67BA25A7-1BF6-4E47-B402-201EA2E23985}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAppSIEE", "TestAppSIEE\TestAppSIEE.csproj", "{D4718809-84C7-4B0B-99D7-D433C04724AF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{67BA25A7-1BF6-4E47-B402-201EA2E23985} = {67BA25A7-1BF6-4E47-B402-201EA2E23985}
+		{BDE05EF5-13B6-40BE-A34E-C685D3795632} = {BDE05EF5-13B6-40BE-A34E-C685D3795632}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +47,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {94FCC201-0764-4A6A-BC96-453C99306CEE}
 	EndGlobalSection
 EndGlobal

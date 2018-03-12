@@ -142,5 +142,18 @@ namespace ExportExtensionCommon
 
             return defaultDefinitions;
         }
+
+        public static string GetProfileName(out string projectFolder)
+        {
+            projectFolder = null;
+            try
+            {
+                RightDocs.Common.ProjectManager profile = RightDocs.Common.ProjectManager.Instance;
+                projectFolder = profile.CurrentProject.GetProjectHome();
+                return profile.CurrentProject.Name;
+            }
+            catch { }
+            return "Unknown profile";
+        }
     }
 }

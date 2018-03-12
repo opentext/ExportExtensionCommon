@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -31,15 +31,26 @@ namespace ExportExtensionCommon
 
     public class SIEEUserControl : UserControl
     {
+        public SIEEUserControl()
+        {
+            CommandBindings.Add(new CommandBinding(
+                SIEECommands.OpenTabs,
+                (s, e) => { ((SIEEViewModel)DataContext).OpenTabs(s, e); }));
+            CommandBindings.Add(new CommandBinding(
+                SIEECommands.LoadDefaultsFile,
+                (s, e) => { ((SIEEViewModel)DataContext).LoadDefaultsFile(s, e); }));
+            CommandBindings.Add(new CommandBinding(
+                SIEECommands.LoadDefaults,
+                (s, e) => { ((SIEEViewModel)DataContext).LoadDefaults(s, e); }));
+        }
+
+
         public SIEEControl SieeControl { get; set; }
 
         public void SetDataContext(SIEEViewModel viewModel)
         {
             DataContext = viewModel;
             viewModel.Control = this;
-            CommandBindings.Add(new CommandBinding(SIEECommands.OpenTabs, viewModel.OpenTabs));
-            CommandBindings.Add(new CommandBinding(SIEECommands.LoadDefaultsFile, viewModel.LoadDefaultsFile));
-            CommandBindings.Add(new CommandBinding(SIEECommands.LoadDefaults, viewModel.LoadDefaults));
         }
     }
 }

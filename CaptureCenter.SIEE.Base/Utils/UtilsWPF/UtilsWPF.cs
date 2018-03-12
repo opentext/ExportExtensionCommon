@@ -11,12 +11,14 @@ namespace ExportExtensionCommon
     {
         public static void EmbedWPFControl(System.Windows.Forms.Control formsControl, System.Windows.Controls.UserControl wpfControl)
         {
-            ElementHost elementHost = new ElementHost();
-            elementHost.AutoSize = true;
-            //elhost.BackColor = System.Drawing.Color.Red;
-            elementHost.Dock = System.Windows.Forms.DockStyle.Fill;
-            formsControl.Controls.Add(elementHost);
-            elementHost.Child = wpfControl;
+            ElementHost elementHost = new ElementHost()
+            {
+                AutoSize = true,
+                //BackColor = System.Drawing.Color.Red;
+                Dock = System.Windows.Forms.DockStyle.Fill,
+                Child = wpfControl,
+            };
+        formsControl.Controls.Add(elementHost);
         }
 
         public static void ShowDialog(Window dlg)

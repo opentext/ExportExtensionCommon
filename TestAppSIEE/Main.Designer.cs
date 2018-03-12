@@ -158,7 +158,7 @@ namespace ExportExtensionCommon
             // chkbox_clear
             // 
             resources.ApplyResources(this.chkbox_clear, "chkbox_clear");
-            this.chkbox_clear.Checked = global::ExportExtensionCommon.Properties.Settings.Default.ClearSetting;
+            //this.chkbox_clear.Checked = global::ExportExtensionCommon.Properties.Settings.Default.ClearSetting;
             this.chkbox_clear.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkbox_clear.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::ExportExtensionCommon.Properties.Settings.Default, "ClearSetting", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chkbox_clear.Name = "chkbox_clear";
@@ -193,7 +193,7 @@ namespace ExportExtensionCommon
             // chbox_reloadConfiguration
             // 
             resources.ApplyResources(this.chbox_reloadConfiguration, "chbox_reloadConfiguration");
-            this.chbox_reloadConfiguration.Checked = global::ExportExtensionCommon.Properties.Settings.Default.ReloadConfiguration;
+            //this.chbox_reloadConfiguration.Checked = global::ExportExtensionCommon.Properties.Settings.Default.ReloadConfiguration;
             this.chbox_reloadConfiguration.DataBindings.Add(new System.Windows.Forms.Binding("Checked", global::ExportExtensionCommon.Properties.Settings.Default, "ReloadConfiguration", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.chbox_reloadConfiguration.Name = "chbox_reloadConfiguration";
             this.chbox_reloadConfiguration.UseVisualStyleBackColor = true;
@@ -223,7 +223,7 @@ namespace ExportExtensionCommon
             this.Controls.Add(this.btn_configure);
             this.Controls.Add(this.menuStrip1);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ExportExtensionCommon.Properties.Settings.Default, "MainLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.Location = global::ExportExtensionCommon.Properties.Settings.Default.MainLocation;
+            //this.Location = global::ExportExtensionCommon.Properties.Settings.Default.MainLocation;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Main";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Main_Closing);

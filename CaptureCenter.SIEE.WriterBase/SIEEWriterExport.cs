@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Xml;
 
 using RightDocs.Common;
@@ -18,7 +18,7 @@ namespace ExportExtensionCommon
     /// properties from the destination.
 
     [ComponentSettings(typeof(EECWriterSettings))]
-    [ComponentDescription("SIEE_Export", "Transformer", "SIEE Adapter", "OpenText")]
+    [ComponentDescription("SIEE_Export", "Transformer", "OCC: SIEE Adapter", "OpenText")]
     public sealed class SIEEWriterExport : BaseTransformer, IConfigurable2<EECWriterSettings>, IDisposable
     {
         private EECWriterSettings writerSettings;
@@ -59,6 +59,7 @@ namespace ExportExtensionCommon
             SIEEBatch batch = new SIEEBatch();
             int maxRetryCount = description.NumberOfRetries;
             string batchId = pool.RootNode.Fields["cc_BatchId"].Value;
+            string profile = pool.RootNode.Fields["cc_ProfileName"].Value;
 
             SIEEExport.Trace.WriteInfo("Start exporting batch " + batchId);
 
@@ -69,7 +70,7 @@ namespace ExportExtensionCommon
             for (int i = 0; i < pool.RootNode.Documents.Count; i++)
             {
                 Document document = pool.RootNode.Documents[i];
-                SIEEDocument sieeDocument = documentToFieldlist(new SIEEFieldlist(schema), document, batchId);
+                SIEEDocument sieeDocument = documentToFieldlist(new SIEEFieldlist(schema), document, batchId, profile);
                 sieeDocument.DocumentId = String.Format("{0:D4}", i);
                 sieeDocument.DocumentClass = document.Name;
 
@@ -136,16 +137,16 @@ namespace ExportExtensionCommon
         /// are left unchanged. That means, if the field has a value that that is passed to the export. Normally schema
         /// fields should have "null" assigned to the Value property of a fields. The SIEEExport function needs to
         /// handle this case.
-        private SIEEDocument documentToFieldlist(SIEEFieldlist fieldlist, Document doc, string batchId)
+        private SIEEDocument documentToFieldlist(SIEEFieldlist fieldlist, Document doc, string batchId, string profile)
         {
             CustomExportDestinationField edf;
             CustomExportDestinationTable edt;
-            
+
             foreach (Field dataPoolField in doc.Fields)
             {
                 if (dataPoolField is LookupList)
                 {
-                    foreach (Field dataPoolSubfield in dataPoolField.Fields) 
+                    foreach (Field dataPoolSubfield in dataPoolField.Fields)
                         setFieldValue(fieldlist, dataPoolSubfield);
                     continue;
                 }
@@ -155,20 +156,20 @@ namespace ExportExtensionCommon
                     if (edt == null)
                         continue;
                     SIEETableField tf = (SIEETableField)fieldlist.GetFieldByName(edt.Name);
-                    if (tf == null) 
+                    if (tf == null)
                         continue;
                     FieldCollection rows = ((Table)dataPoolField).Rows;
-                    for (int i=0; i != rows.Count; i++)
+                    for (int i = 0; i != rows.Count; i++)
                     {
                         TableRow r = (TableRow)rows[i];
                         SIEETableFieldRow tf_row = new SIEETableFieldRow();
                         foreach (Field col in r.Columns)
                         {
                             edf = this.writerSettings.FieldsMapper.GetExternalTableCell(((Table)dataPoolField), col);
-                            if (edf == null) 
+                            if (edf == null)
                                 continue;
 
-                            if (tf.ColumnExists(edf.Name)) 
+                            if (tf.ColumnExists(edf.Name))
                                 tf_row.Add(edf.Name, col.Value);
                         }
                         tf.AddRow(tf_row);
@@ -186,16 +187,19 @@ namespace ExportExtensionCommon
                     auxFields.Add(new SIEEField(dataPoolField.Name, null, dataPoolField.Value));
             }
 
-            SIEEDocument document = new SIEEDocument();
-            document.Fieldlist = fieldlist;
-            document.AuxFields = auxFields;
-            document.PDFFileName = doc.GetExportPdfSource().Url;
             SourceInstance[] si = doc.GetInputSourceInstances();
-            document.InputFileName = si.Length > 0 ? doc.GetInputSourceInstances()[0].Id : "";
-            document.BatchId = batchId;
             Annotation a = doc.Annotations["exportName"];
-            document.ScriptingName = (a != null) ? a.Value : null;
-            
+
+            SIEEDocument document = new SIEEDocument()
+            {
+                Fieldlist = fieldlist,
+                AuxFields = auxFields,
+                PDFFileName = doc.GetExportPdfSource().Url,
+                InputFileName = si.Length > 0 ? doc.GetInputSourceInstances()[0].Id : "",
+                BatchId = batchId,
+                ScriptingName = a?.Value,
+                Profile = profile,
+            };
             return document;
         }
 
@@ -206,10 +210,8 @@ namespace ExportExtensionCommon
             CustomExportDestinationField edf = null;
 
             if (FieldMapping4UnitTest_Contains(dataPoolField.Name))
-            {
-                edf = new CustomExportDestinationField();
-                edf.Name = dataPoolField.Name;
-            } else
+                edf = new CustomExportDestinationField() { Name = dataPoolField.Name };
+            else
                 edf = this.writerSettings.FieldsMapper.GetExternalField(dataPoolField);
 
             if (edf == null) return;

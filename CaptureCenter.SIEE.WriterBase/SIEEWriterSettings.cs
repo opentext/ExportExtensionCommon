@@ -44,8 +44,26 @@ namespace ExportExtensionCommon
 
             if (!string.IsNullOrEmpty(SerializedSettings))
             {
-                string xmlString = (string)SIEESerializer.StringToObject(SerializedSettings);
-                sieeSettings = (SIEESettings)Serializer.DeserializeFromXmlString(xmlString, factory.CreateSettings().GetType(), System.Text.Encoding.Unicode);
+                try
+                {
+                    //throw new Exception("Test dummy exception");
+                    string xmlString = (string)SIEESerializer.StringToObject(SerializedSettings);
+                    sieeSettings = (SIEESettings)Serializer.DeserializeFromXmlString(xmlString, factory.CreateSettings().GetType(), System.Text.Encoding.Unicode);
+                }
+                catch (Exception e)
+                {
+                    System.Windows.Forms.MessageBox.Show(
+                        "Error loading export destination. \n" +
+                            "Settings for export extension is lost.\n" +
+                            "You need to reconfigure the export extension\n\n" +
+                            $"Extension type = {SettingsTypename}\n" +
+                            e.ToString(),
+                        "Load profile",
+                        System.Windows.Forms.MessageBoxButtons.OK,
+                        System.Windows.Forms.MessageBoxIcon.Error
+                        );
+                    sieeSettings = factory.CreateSettings();
+                }
             }
             else
             {

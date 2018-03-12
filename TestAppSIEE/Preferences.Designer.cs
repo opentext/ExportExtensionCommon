@@ -171,7 +171,7 @@ namespace ExportExtensionCommon
             this.Controls.Add(this.lbl_settings);
             this.Controls.Add(this.btn_settings);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ExportExtensionCommon.Properties.Settings.Default, "PreferencesLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.Location = global::ExportExtensionCommon.Properties.Settings.Default.PreferencesLocation;
+            //this.Location = global::ExportExtensionCommon.Properties.Settings.Default.PreferencesLocation;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Preferences";
             this.Text = "SIEE Settings";

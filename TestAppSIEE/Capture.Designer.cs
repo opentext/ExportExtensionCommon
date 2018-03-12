@@ -150,7 +150,7 @@ namespace ExportExtensionCommon
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.btn_ok);
             this.DataBindings.Add(new System.Windows.Forms.Binding("Location", global::ExportExtensionCommon.Properties.Settings.Default, "CaptureLocation", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.Location = global::ExportExtensionCommon.Properties.Settings.Default.CaptureLocation;
+            //this.Location = global::ExportExtensionCommon.Properties.Settings.Default.CaptureLocation;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(650, 200);
             this.Name = "Capture";

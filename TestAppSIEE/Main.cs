@@ -6,6 +6,7 @@ using System.Windows.Forms;
 
 using DOKuStar.Diagnostics.Tracing;
 
+// Enable compiler switches for your export extension
 #if ProcessSuite
 using CaptureCenter.ProcessSuite;
 #endif
@@ -24,8 +25,11 @@ using CaptureCenter.HelloWorld;
 #if SPO
 using CaptureCenter.SPO;
 #endif
-#if Email
-using CaptureCenter.EmailExport;
+#if AX
+using CaptureCenter.ApplicationExtender;
+#endif
+#if xECM
+using CaptureCenter.xECM;
 #endif
 
 namespace ExportExtensionCommon
@@ -61,8 +65,8 @@ namespace ExportExtensionCommon
             if (!Directory.Exists(basePath))
                 return;
 
-        string targetTraceFile = Path.Combine(TraceManager.RootPath, "CaptureCenter.traceconfig");
-        TraceConfigurator.ConfigureAndWatch(new FileInfo(targetTraceFile));
+            string targetTraceFile = Path.Combine(TraceManager.RootPath, "CaptureCenter.traceconfig");
+            TraceConfigurator.ConfigureAndWatch(new FileInfo(targetTraceFile));
 
 #if ProcessSuite
             SIEEFactoryManager.Add(new ProcessSuiteFactory());
@@ -82,10 +86,12 @@ namespace ExportExtensionCommon
 #if SPO
             SIEEFactoryManager.Add(new SPOFactory());
 #endif
-#if Email
-            SIEEFactoryManager.Add(new EmailExportFactory());
+#if AX
+            SIEEFactoryManager.Add(new AXFactory());
 #endif
-
+#if xECM
+            SIEEFactoryManager.Add(new xECMFactory());
+#endif
             foreach (string ext in SIEEFactoryManager.GetKeysFromTypeName())
             {
                 string name = ext.Split('.').Last();
@@ -174,23 +180,22 @@ namespace ExportExtensionCommon
                         schema = settings.CreateSchema();
                         schema.MakeFieldnamesOCCCompliant();
                         verifySchema(schema);
+
+                        lbl_message.Text = "Settings and schema";
+                        lbl_location.Text = description.GetLocation(settings);
+                        richTextBox_settings.Text = settings.ToString() + Environment.NewLine +
+                                "---------------" + Environment.NewLine +
+                                schema.ToString(data: false) + Environment.NewLine +
+                                "---------------" + Environment.NewLine +
+                                "Location = " + description.GetLocation(settings);
+                        btn_export.Enabled = false;
+                        btn_capture.Enabled = true;
+                        lbl_status.Text = "Configuration ready";
                     }
                     catch (Exception e1)
                     {
                         MessageBox.Show("Error loading configuration\n" + e1.Message);
-                        return;
                     }
-                    lbl_message.Text = "Settings and schema";
-                    lbl_location.Text = description.GetLocation(settings);
-                    richTextBox_settings.Text = settings.ToString() + Environment.NewLine +
-                            "---------------" + Environment.NewLine +
-                            schema.ToString(data: false) + Environment.NewLine +
-                            "---------------" + Environment.NewLine +
-                            "Location = " + description.GetLocation(settings);
-                    btn_export.Enabled = false;
-                    btn_capture.Enabled = true;
-                    lbl_status.Text = "Configuration ready";
-
                     Properties.Settings.Default.ConfigSize = confDlg.Size;
                     saveCurrentSettings();
                 }
@@ -367,11 +372,12 @@ namespace ExportExtensionCommon
 
         private void changeFont()
         {
-            FontDialog dialog = new FontDialog();
-            dialog.ShowColor = true;
-
-            dialog.Font = richTextBox_settings.Font;
-            dialog.Color = richTextBox_settings.ForeColor;
+            FontDialog dialog = new FontDialog()
+            {
+                ShowColor = true,
+                Font = richTextBox_settings.Font,
+                Color = richTextBox_settings.ForeColor,
+            };
 
             if (dialog.ShowDialog() != DialogResult.Cancel)
             {

@@ -47,6 +47,12 @@
     <Reference Include="DOKuStar.Runtime">
       <HintPath>..\..\..\..\..\_bin\DOKuStar.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="ExportExtensionCommon.Base">
+      <HintPath>..\..\eebin\ExportExtensionCommon.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="ExportExtensionCommon.WriterBase">
+      <HintPath>..\..\eebin\ExportExtensionCommon.WriterBase.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.XML" />
@@ -66,16 +72,6 @@
   <ItemGroup>
     <Compile Include="SIEETest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CaptureCenter.SIEE.Base\CaptureCenter.SIEE.Base.csproj">
-      <Project>{67ba25a7-1bf6-4e47-b402-201ea2e23985}</Project>
-      <Name>CaptureCenter.SIEE.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CaptureCenter.SIEE.WriterBase\CaptureCenter.SIEE.WriterBase.csproj">
-      <Project>{bde05ef5-13b6-40be-a34e-c685d3795632}</Project>
-      <Name>CaptureCenter.SIEE.WriterBase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

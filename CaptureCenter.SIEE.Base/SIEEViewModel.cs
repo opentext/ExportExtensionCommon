@@ -32,7 +32,7 @@ namespace ExportExtensionCommon
         {
             defaultSettings = new SIEEDefaultValues();
             var ds = Properties.Settings.Default.DefaultSettings;
-            if (ds != null && ds != "")
+            if (!string.IsNullOrEmpty(ds))
                 try { defaultSettings.Initialize(ds); }
                 catch (Exception e)
                 {
@@ -63,28 +63,32 @@ namespace ExportExtensionCommon
             }
         }
 
-        public void LoadDefaults(object sender, ExecutedRoutedEventArgs e)
+        public virtual void LoadDefaults(object sender, ExecutedRoutedEventArgs e)
         {
-            if (Control == null) return;
-            try { setDefaults(Control.SieeControl.GetSettings()); }
+            if (Control != null)
+                LoadDefaults(Control.SieeControl.GetSettings());
+        }
+
+        public void LoadDefaults(SIEESettings settings)
+        {
+            try { SetDefaults(settings.GetType(), this); }
             catch (Exception ex)
             {
                 SIEEMessageBox.Show(
-                    "Cannot set defaults. Reason:\n" + ex.Message, 
+                    "Cannot set defaults. Reason:\n" + ex.Message,
                     "Load default values",
                     System.Windows.MessageBoxImage.Error);
             }
         }
 
-        private void setDefaults(SIEESettings settings)
+        public void SetDefaults(Type settingsType, SIEEViewModel vm)
         {
-            string settingsType = settings.GetType().Name;
-            foreach (KeyValuePair<string, string> propSetting in defaultSettings.GetPropertiesDict(settingsType))
+            foreach (KeyValuePair<string, string> propSetting in defaultSettings.GetPropertiesDict(settingsType.Name))
             {
                 string propName = propSetting.Key;
                 string propValue = propSetting.Value;
 
-                SIEEDefaultValues.ObjectAndPropertyInfo opi = SIEEDefaultValues.FindProperty(this, propName.Split('.'));
+                SIEEDefaultValues.ObjectAndPropertyInfo opi = SIEEDefaultValues.FindProperty(vm, propName.Split('.'));
                 if (opi.PropertyInfo == null) continue;
 
                 var newValue = Convert.ChangeType(propValue, opi.PropertyInfo.PropertyType);

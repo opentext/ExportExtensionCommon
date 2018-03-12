@@ -28,12 +28,24 @@ namespace ExportExtensionCommon
             set { SetField(ref rightButtonText, value); }
         }
 
-        public static bool LaunchOkCancelDialog(string title, System.Windows.Controls.UserControl content, SIEEViewModel vm)
+        public static bool LaunchOkCancelDialog(
+            string title, System.Windows.Controls.UserControl content, SIEEViewModel vm,
+            string leftButtonText = "Ok", string rightButtonText = "Cancel")
+        {
+            SIEEOkCancelDialog dlg = CreateOkCancelDialog(title, content, vm, leftButtonText, rightButtonText);
+            return dlg.ShowDialog() == true;
+        }
+
+        public static SIEEOkCancelDialog CreateOkCancelDialog(
+            string title, System.Windows.Controls.UserControl content, SIEEViewModel vm,
+            string leftButtonText = "Ok", string rightButtonText = "Cancel")
         {
             SIEEOkCancelDialog dlg
-                = new SIEEOkCancelDialog();
+               = new SIEEOkCancelDialog();
             SIEEOKCancelDialogViewModel dlgViewModel = new SIEEOKCancelDialogViewModel();
             dlgViewModel.Title = title;
+            dlgViewModel.LeftButtonText = leftButtonText;
+            dlgViewModel.RightButtonText = rightButtonText;
             dlg.DataContext = dlgViewModel;
 
             content.DataContext = vm;
@@ -46,7 +58,7 @@ namespace ExportExtensionCommon
             else
                 dlg.Owner = System.Windows.Application.Current.MainWindow;
 
-            return dlg.ShowDialog() == true;
+            return dlg;
         }
     }
 }

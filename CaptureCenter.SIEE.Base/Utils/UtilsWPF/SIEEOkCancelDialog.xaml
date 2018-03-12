@@ -8,7 +8,6 @@
     mc:Ignorable="d" 
     Title="{Binding Title}"
     SizeToContent="WidthAndHeight"
-    MinWidth="300" MinHeight="300"
 >
     <Window.Resources>
         <local:BoolToRunningCursorConverter x:Key="BoolToRunningCursorConverter"/>

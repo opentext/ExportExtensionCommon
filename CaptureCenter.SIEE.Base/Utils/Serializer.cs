@@ -220,8 +220,7 @@ namespace ExportExtensionCommon
             // XmlSerializer f�r den Typ des Objekts erzeugen
             XmlSerializer serializer = new XmlSerializer(objectType, extraTypes);
             // JIRA OCC-6381: Preserve Whitespaces. For replacement characters within snap match settings, they will be translated to \b, \n, ... later on
-            XmlReaderSettings readerSettings = new XmlReaderSettings();
-            readerSettings.IgnoreWhitespace = false;
+            XmlReaderSettings readerSettings = new XmlReaderSettings() { IgnoreWhitespace = false};
             XmlReader reader = XmlReader.Create(stream, readerSettings);
             return serializer.Deserialize(reader);
         }

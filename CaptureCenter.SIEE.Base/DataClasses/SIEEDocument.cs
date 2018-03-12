@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 namespace ExportExtensionCommon
 {
@@ -7,6 +7,7 @@ namespace ExportExtensionCommon
         public SIEEFieldlist Fieldlist { get; set; }
         public SIEEFieldlist AuxFields { get; set; } = new SIEEFieldlist();
         public string BatchId { get; set; }
+        public string Profile { get; set; }
         public string DocumentClass { get; set; }
         public string DocumentId { get; set; }      // consecutive number set by SIEEWriter.transform
         public string ScriptingName { get; set; }   // proposed name from scripting (Annotation ExportName)
