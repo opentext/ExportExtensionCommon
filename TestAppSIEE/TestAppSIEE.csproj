@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>TRACE;DEBUG;__CMIS __EMAIL __SPO __SQL HELLO_WORLD</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;__CMIS __EMAIL __SPO __SQL __HELLO_WORLD</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <UseVSHostingProcess>false</UseVSHostingProcess>
